@@ -1,0 +1,11 @@
+2018Fall Courses:
+
+CMPE 200.01 (Summer Training)
+CMPE 444.01 (Digital Currencies and Blockchain)
+EEEN 210.01 (Computer Graphics I) <!-- -->
+MATH 233.01 (Discrete Mathematics)
+CMPE 321.01 (Computer Architecture)
+CMPE 351.01 (Database Systems)
+CMPE 331.01 (Software Engineering Concepts)
+
+321 Homework OCTOBER 4 ASK ENES

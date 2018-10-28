@@ -1,0 +1,14 @@
+Go to https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+It is also possible to reach this editor from any example on the tutorial pages.
+You can see the content of sample database by clicking the tablenames listed on the right side of the window.
+Students who can not attend the class are allowed to submit until next lab session.
+Solve the questions below, save your answers to a txt file and submit.
+
+	1)Query the names and supplier id’s of all products with their category names (ordered by supplier id).
+	2)List the number of products in each category in descending order and their category names.
+	3)Query the product names, units and supplier names of the products contained in bottle(s).
+	(Hint: use wildcards on Unit column)
+	4)Query the names and the number of orders(as NumberOfOrders) of the top 10 customers that have more
+	than 3 orders (in descending order).
+
+Note: All of your queries must have the "INNER JOIN" keyword.

@@ -1,0 +1,14 @@
+Using MySQL Workbench;
+	1) Create a table named “Department” with the fields “idDepartment” (int) as primary key, “DepartmentName” (varchar).
+	2) Create another table named “Project” with the fields “idProject” (int) as primary key, “ProjectName” (varchar), 
+	“Budget” (int) and “StartDate” (date).
+	3) Create one-to-n non-identifying relationship named “Controls” between “Department” and “Project” tables, 
+	where one department may control zero or many projects whereas a project must be controlled by only one department. 
+	Double click on the relation you created and set the participation constraints by checking/unchecking “Mandatory” 
+	checkboxes from “Foreign Key” tab.
+	4) Press CTRL+P to export your EER Diagram as pdf.
+	5) Press CTRL+Shift+G (or File/Export/Forward Engineer) in order to generate CREATE script. 
+	Click “Next”, click “Next” again and click “Copy to Clipboard”. 
+	Then paste the copied script into a txt file named “Lab5.txt”
+
+Submit the pdf you exported on question 4 and the script “Lab5.txt” on question 5 to the blackboard.

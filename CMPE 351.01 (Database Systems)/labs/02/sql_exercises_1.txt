@@ -1,0 +1,11 @@
+Go to https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+It is also possible to reach this editor from any example on the tutorial pages.
+You can see the content of sample database by clicking the tablenames listed on the right side of the window.
+Students who can not attend the class are allowed to submit until next lab session.
+Solve the questions below, save your answers to a txt file and submit.
+
+	1) Query all the columns for all products with CategoryID 8.
+	2) Query the phone numbers of the suppliers which are located in USA.
+	3) Query the name of the products with a price higher than 25.
+	4) Create a new table with at least 4 fields. One field must be reserved for ID and be an integer. The other fields can be varchar, date, int etc.
+	5) Create a primary key constraint on the ID column of the table you created on the previous question using ALTER TABLE.

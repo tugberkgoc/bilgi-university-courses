@@ -1,0 +1,31 @@
+ANSWERS
+
+1)
+
+SELECT * FROM Categories
+	WHERE CategoryID = '8';
+
+2)
+
+SELECT Phone FROM [Suppliers]
+	WHERE Country = 'USA';
+
+3)
+
+SELECT ProductName FROM Products
+	WHERE Price > 25;
+
+4)
+
+CREATE TABLE Persons (
+    ID int,
+    LastName varchar(255),
+    FirstName varchar(255),
+    CreatingDate Date,
+    TelNumber int 
+);
+
+5)
+
+ALTER TABLE Persons
+	ADD PRIMARY KEY (ID);

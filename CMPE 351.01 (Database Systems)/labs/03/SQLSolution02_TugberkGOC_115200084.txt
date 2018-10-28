@@ -1,0 +1,35 @@
+1)
+
+SELECT P.ProductName, C.CategoryName, P.SupplierID
+	FROM Products AS P
+    INNER JOIN Categories AS C ON P.CategoryID = C.CategoryID
+    ORDER BY P.SupplierID, C.CategoryName;
+
+    
+2)
+
+SELECT COUNT(P.ProductID), C.CategoryID, C.CategoryName
+	FROM Products AS P
+    INNER JOIN Categories AS C ON C.CategoryID = P.CategoryID
+    GROUP BY P.CategoryID
+    ORDER BY COUNT(P.ProductID) DESC;
+
+
+3)
+
+SELECT P.ProductName, P.Unit, S.SupplierName 
+	FROM Products AS P
+    INNER JOIN Suppliers AS S ON P.SupplierID = S.SupplierID
+    WHERE Unit
+    LIKE '%bottle%';
+
+
+4)
+
+SELECT C.CustomerName, COUNT(O.CustomerID) AS NumberOfOrders
+	FROM Customers AS C
+    INNER JOIN Orders AS O ON O.CustomerID = C.CustomerID
+    GROUP BY O.CustomerID 
+    HAVING COUNT(O.CustomerID) > 3
+    ORDER BY NumberOfOrders DESC, C.CustomerName
+    LIMIT 10;
