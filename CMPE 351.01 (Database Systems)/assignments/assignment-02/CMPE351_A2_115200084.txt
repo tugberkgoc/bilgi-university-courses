@@ -1,0 +1,54 @@
+1 . Writing Queries
+
+	1 . Write a query that lists the first name and the number of sales of each
+	employee including the ones that has not received any orders yet.
+
+	SELECT 
+		E.FirstName, E.EmployeeID, COUNT(O.EmployeeID) AS NumberofSales
+	From 
+		Employees AS E 
+	INNER JOIN 
+		Orders AS O on E.EmployeeID = O.EmployeeID
+	GROUP BY 
+		E.EmployeeID;
+
+	2 . Write a query that calculates and lists the total price of each order.
+
+	SELECT 
+		OD.OrderID, Sum(P.Price * OD.Quantity) as Total_Price
+	FROM 
+		OrderDetails AS OD 
+	INNER JOIN 
+		Products AS P On OD.ProductID = P.ProductID
+	Group by 
+		OD.OrderID
+	Order by 
+		OD.OrderDetailID ASC;
+
+	3 .	Write a query that lists the name of each different product shipped by
+	Speedy Express.
+	Addition : Also ordered by ASC
+
+	SELECT DISTINCT
+		P.ProductName
+	FROM 
+		Orders AS O
+	INNER JOIN	
+    	OrderDetails AS OD ON OD.OrderID = O.OrderID
+	INNER JOIN
+		Products AS P ON OD.ProductID = P.ProductID
+	INNER JOIN
+		Shippers AS S ON S.ShipperID = O.ShipperID
+	WHERE
+		S.ShipperName = 'Speedy Express'
+	ORDER BY
+		P.ProductName ASC;
+       
+
+2 . Reading Queries
+
+	A query that lists the category name and how many products are sold, also shipped by Speedy Express
+
+
+        
+        

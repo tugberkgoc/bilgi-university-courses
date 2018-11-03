@@ -1,0 +1,88 @@
+2))
+
+If there is a strong entity, I directly add a table for that. Also, adding primary key.
+If there is a weak entity, I just add a table.
+If it is a connection between tables, I choose many-to-many relation to create new table, otherwise, there is no need to create it. Just adding foreign keys between their relatinships.
+For participation constrains, I look at one or double lines. Then, If it is one, It is partial, otherwise, it is total.
+
+
+3))
+ 
+
+1.MANAGES Relationship
+Between EMPLOYEE and DEPARTMENT 
+Cardinality: --- ONE TO ONE ---
+Participation Constraints: 
+--- DEPARTMENT Not Mandatory (Partial) , EMPLOYEE Mandatory (Total) ---
+
+2.SUPERVISION Relationship
+Between EMPLOYEE and EMPLOYEE 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- EMPLOYEE Not Mandatory (Partial) , EMPLOYEE Not Mandatory (Partial) ---
+
+3.WORKS_FOR Relationship
+Between EMPLOYEE and DEPARTMENT 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- EMPLOYEE Not Mandatory (Partial) , DEPARTMENT Mandatory (Total) ---
+
+4.WORKS_FOR Relationship
+Between EMPLOYEE and WORKS_ON 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- EMPLOYEE Mandatory (Total) , WORKS_ON Mandatory (Total) ---
+
+5.WORKS_FOR Relationship
+Between PROJECT and WORKS_ON 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- PROJECT Mandatory (Total) , WORKS_ON Mandatory (Total) ---
+
+6.DEPENDENTS_OF Relationship
+Between EMPLOYEE and DEPENDENT 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- EMPLOYEE Mandatory (Total) , DEPENDENT Not Mandatory (Partial) ---
+
+7.CONTROLS Relationship
+Between PROJECT and DEPARTMENT 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- PROJECT NOT Mandatory (Partial) , DEPARTMENT Mandatory (Total) ---
+
+8.DEP-LOC01 Relationship
+Between DEPARTMENT and LOCATION 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- DEPARTMENT Mandatory (Total) , LOCATION Mandatory (Total) ---
+
+9.DEP-LOC02 Relationship
+Between DEPARTMENT and LOCATION 
+Cardinality: --- ONE TO MANY ---
+Participation Constraints: 
+--- DEPARTMENT Mandatory (Total) , LOCATION Mandatory (Total) ---
+
+8 and 9 created because there is a many to many relationship between DEPARTMEN and its location. In many to many relation, we need to create and specify another table to connect their primary keys.
+
+
+4))
+
+---FOREIGN KEYS---
+
+EMPLOYEE : Super_ssn(FROM EMPLOYEE)
+
+DEPARTMENT : ManagerID(FROM EMPLOYEE) , WORKS_FOR(FROM EMPLOYEE)
+
+WORKS_ON : Essn(FROM EMPLOYEE), Pno(FROM PROJECT)
+
+DEPENDENT : Employee_Ssn(FROM EMPLOYEE)
+
+PROJECT : Dnum(FROM DEPARTMENT)
+
+DEPARTMENT_has_DEPT_LOCATIONS : Dnumber(FROM DEPARTMENT), Dname(FROM DEPARTMENT), Dlocation(FROM DEPT_LOCATIONS)
+
+DEPT_LOCATIONS : -
+
+
+
