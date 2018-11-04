@@ -1,0 +1,83 @@
+class FSM{
+
+    private State[] states = {new A(), new B(), new C()};
+
+    private int [][] transitions = {{2,1,0}, {0,2,1}, {1,2,2}};
+    private int current = 0;
+    private void next(int message){
+        current = transitions[0][message];
+    }
+    public void on(){
+        states[current].on();
+        next(0);
+    }
+    public void off(){
+        states[current].off();
+        next(1);
+    }
+    public void ack(){
+        states[current].ack();
+        next(2);
+    }
+    
+
+}
+
+abstract class State {
+    public void on() {
+        System.out.println("terminated");
+    }
+    public void off(){
+        System.out.println("Terminated");
+    }
+    public void ack(){
+        System.out.println("Terminated");
+    }
+}
+
+class A extends State {
+    public void on(){// 0th transition/message
+        System.out.println("State A to State C with on");
+    }
+    public void off(){//1s transition/message
+        System.out.println("State A to State B with off");
+    }
+    public void ack(){//2nd transition/message
+        System.out.println("State A stays at State A with ack");
+    }
+}
+class B extends State {
+    public void on(){
+        System.out.println("State B to State A with on");
+    }
+    public void off(){
+        System.out.println("State B to State C with off");
+    }
+    
+}
+class C extends State {
+    public void on(){
+        System.out.println("State C to State B with on");
+    }
+    public void off(){
+        System.out.println("State C stays at C state with off");
+    }
+   
+}
+ class StatesDemo{
+    public static void main(String[] args) {
+        FSM fsm = new FSM();
+        int[] messages = {2,1,2,1,0,2,0,0};
+        for(int message : messages){
+            if(message==0){
+                fsm.on();
+            }
+            else if(message==1){
+                fsm.off();
+            }
+            else if(message==2){
+                fsm.ack();
+            }
+        }
+    }
+}
