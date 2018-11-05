@@ -1,0 +1,11 @@
+//Tugberk Goc 115200084
+CHIP Mux {
+    IN a, b, sel;
+    OUT out;
+
+    PARTS:
+    Not(in=sel, out=notSel);
+    And(a=a, b=notSel, out=aChosen);
+    And(a=b, b=sel, out=bChosen);
+    Or(a=aChosen, b=bChosen, out=out);
+}

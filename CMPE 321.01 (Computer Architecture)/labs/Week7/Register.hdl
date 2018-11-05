@@ -1,0 +1,8 @@
+//Tugberk Goc 115200084
+CHIP Register {
+    IN in[16], load;
+    OUT out[16];
+
+    PARTS:
+    Bit16(in=in, load=load, out=out);
+}

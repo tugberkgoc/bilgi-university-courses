@@ -1,0 +1,10 @@
+//Tugberk Goc 115200084
+CHIP Bit {
+    IN in, load;
+    OUT out;
+
+    PARTS:
+    DFF(in=dffInput, out=dffOutput);
+    Mux(a=dffOutput, b=in, sel=load, out=dffInput);
+    Buffer(in=dffOutput, out=out);
+}
