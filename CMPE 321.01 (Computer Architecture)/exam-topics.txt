@@ -1,0 +1,11 @@
+cmpe321
+
+midterm-topics:
+
+slides 2, 3 and 5.
+
+Not covered first slide which contains stations.
+
+final-topics:
+
+???
