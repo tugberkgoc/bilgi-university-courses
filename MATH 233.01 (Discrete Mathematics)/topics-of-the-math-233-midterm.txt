@@ -1,0 +1,6 @@
+From the textbook (Lovasz and Vesztergombi):
+Chapters 1, 2, 3, 4, 5 (5.2 is NOT included), 6 (6.3 is NOT included), 7 (7.3 is NOT included)
+
+Also included in the exam are:
+Distributing Objects into Boxes (4-page pdf note on learn)
+Probability lecture notes (to be uploaded by me)
