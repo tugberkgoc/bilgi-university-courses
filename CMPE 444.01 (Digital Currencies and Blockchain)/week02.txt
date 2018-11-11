@@ -1,0 +1,27 @@
+BLOCKCHAIN COURSE 2
+
+1)Centralized ex: Garanti Bank
+2)Decentralize ex: Turkiye Merkez Bank and its connection with other banks
+3)Distributed ex: Blockchain (Bitcoin)
+
+Bitcoin means technology that is under bitcoin mechanism. bitcoin is a currency.
+
+Money : 
+	*Currency: 
+	*Commudity:
+	*Security: includes (in Turkey: Menkul Kiymet)
+
+Currency and commudity includes 5 to 10 percent of money in the world. Remained(For the rest) is all about security.
+
+Menkul Kiymet = Sirke Hisse Senetleri
+Menkul = Tasinabilir
+
+MKK = Merkezi Kayit Kurulusu  --> Hisse senetlerinin kaydi burada ORACLE database i ile tutulur.  --> Takas Bank (Para Degis-Tokus)
+
+Elon Musk'a 'SEC' sirketi tarafindan dava acildi. Turkiyedeki karsiligi "SPK" firmasi.
+
+IPO (Initial Public Offering) - ICO (Initial Coin Offering)
+
+IPO : Limited Sirketin AS olmasi uzun bir surec.
+ICO : Projeyi yayinlayarak direk olarak invest alabilme.
+
