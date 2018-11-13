@@ -1,6 +1,6 @@
 # Bilgi University Open Source Course Sharing Repository
 
-These are courses which is appending Computer Engineering and Electric, Electronic Engineering Courses.
+These are courses which has been appended Computer Engineering and Electric, Electronic Engineering Courses.
 
 ## How to download with using terminal.
 
