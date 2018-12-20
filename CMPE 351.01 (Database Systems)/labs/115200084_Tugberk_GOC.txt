@@ -1,0 +1,282 @@
+QUIZ
+
+How are relational algebra and SQL related?
+Explain each operator you learned this week in the context of SQL in detail.
+You are encouraged to use the internet.
+
+Please write detailed explanations and give examples. you have 45 minutes.
+
+________________________________________________________________________________
+
+ANSWER
+
+SQL is essentially built on relational algebra. SQL parser translates its Abstract Syntax Tree into a tree of Relational Operators which describe relational algebra operations like filtering, cartesian products, joining, set operations, sorting, expressions and projections.
+
+These operators are being further transformed according to the laws of relational algebra and optimized into physical operators which actually execute the query, i.e. fetch (scan) the data from the storage engine and execute the necessary transformations against rows, or columns. However, the declarative nature of SQL comes from its close relationship with relational algebra and the ability to map SQL clauses pretty much directly to relational algebra operations.
+
+________________________________________________________________________________
+
+
+I'll cover operators about what I have learned in this week. Also, I'll give some examples to show how relational algebra and SQL related. (Queries) In addition to that, I'll add more operators.
+
+________________________________________________________________________________
+
+The PROJECTION Operator (Unary operation) 
+
+Projection is one of the basic operations of Relational Algebra. It takes a relation and a (possibly empty) list of attributes of that relation as input. It outputs a relation containing only the specified list of attributes with duplicate tuples removed. In other words the output must also be a relation.
+
+Example, if the relation R{A,B}, contains three tuples {1,10},{2,10},{3,20} then the projection of R over the attribute list {B} would contain 2 tuples: {10},{20}.
+
+In short, projection is more or less equivalent to SELECT DISTINCT in SQL (excluding cases with nulls and duplicate columns).
+
+________________________________________________________________________________
+
+The SELECT Operator
+
+The SELECT operator is used to choose a subset of the tuples(rows) from a relation that satisfies a selection condition, acting as a filter to retain only tuples that fulfills a qualifying requirement. [3]
+
+The SELECT operator is relational algebra is denoted by the symbol σ (sigma).
+The syntax for the SELECT statement is then as follows: [3]
+σ<Selection condition>(R)
+
+The σ would represent the SELECT command
+The <selection condition> would represent the condition for selection.
+The (R) would represent the Relation or the Table from which we are making a selection of the tuples.
+To implement the SELECT statement in SQL, we take a look at an example in which we would like to select the EMPLOYEE tuples whose employee number is 7, or those whose date of birth is before 1980…
+
+σempno=7(EMPLOYEE)
+
+σdob<’01-Jan-1980′(EMPLOYEE)
+
+The SQL implementation would translate into:
+
+SELECT empno
+
+FROM EMPLOYEE
+
+WHERE empno=7
+
+SELECT dob
+
+FROM EMPLOYEE
+
+WHERE DOB < ’01-Jan-1980′
+
+________________________________________________________________________________
+
+The RENAME Operator
+
+The RENAME operator is used to give a name to results or output of queries, returns of selection statements, and views of queries that we would like to view at some other point in time:
+
+The RENAME operator is symbolized by ρ (rho).
+The general syntax for RENAME operator is: ρ s(B1, B2, B3,….Bn)(R )
+ρ is the RENAME operation.
+S is the new relation name.
+B1, B2, B3, …Bn are the new renamed attributes (columns).
+R is the relation or table from which the attributes are chosen.
+To implement the RENAME statement in SQL, we take a look at an example in which we would like to choose the Date of Birth and Employee Number attributes and RENAME them as ‘Birth_Date’ and ‘Employee_Number’ from the EMPLOYEE relation…
+
+ρ s(Birth_Date, Employee_Number)(EMPLOYEE ) ← ∏dob, empno(EMPLOYEE )
+
+The arrow symbol ← means that we first get the PROJECT operation results on the right side of the arrow then apply the RENAME operation on the results on the left side of the arrow.
+In SQL we would translate the RENAME operator using the SQL ‘AS’ statement:
+
+SELECT dob AS ‘Birth_Date’, empno AS ‘Employee_Number’
+
+FROM EMPLOYEE
+
+________________________________________________________________________________
+
+The UNION, INTERSECTION, and MINUS Operators
+________________________________________________________________________________
+
+UNION: the UNION operation on relation A UNION relation B designated as A ∪ B, joins or includes all tuples that are in A or in B, eliminating duplicate tuples. [3] [7] The SQL implementation of the UNION operations would be as follows:
+
+UNION
+
+RESULT ← A ∪ B
+
+SQL Statement:
+
+SELECT * From A
+
+UNION
+
+SELECT * From B
+
+________________________________________________________________________________
+
+INTERSECTION: the INTERSECTION operation on a relation A INTERSECTION relation B, designated by A ∩ B, includes tuples that are only in A and B. In other words only tuples belonging to A and B, or shared by both A and B are included in the result. [3] [7] The SQL implementation of the INTERSECTION operations would be as follows:
+
+INTERSECTION
+
+RESULT ← A ∩ B
+
+SQL Statement:
+
+SELECT dob From A
+
+INTERSECT
+
+SELECT dob from B
+
+________________________________________________________________________________
+
+MINUS Operations: the MINUS operation includes tuples from one Relation that are not in another Relation. Let the Relations be A and B, the MINUS operation A MINUS B is denoted by A – B, that results in tuples that are A and not in B. [3] [7] The SQL implementation of the MINUS operations would be as follows:
+
+MINUS
+
+RESULT ← A – B
+
+SQL Statement
+
+SELECT dob From A
+
+MINUS
+
+SELECT dob from B
+________________________________________________________________________________
+
+CARTESIAN PRODUCT Operator
+
+The CARTERSIAN PRODUCT operator, also referred to as the cross product or cross join, creates a relation that has all the attributes of A and B, allowing all the attainable combinations of tuples from A and B in the result.[3] [7] [8] The CARTERSIAN PRODUCT A and B is symbolized by X as in A X B.
+
+Let there be Relation A(A1, A2) and Relation B(B1, B2)
+
+The CARTERSIAN PRODUCT C of A and B which is A X B is
+
+C = A X B
+
+C = (A1B1, A1B2 , A2B1, A2B2 )
+
+The SQL implementation would be something like:
+
+SELECT A.dob, B.empno
+
+from A, B
+
+________________________________________________________________________________
+
+JOIN Operator
+
+The JOIN operation is denoted by the ⟗ symbol and is used to compound similar tuples from two Relations into single longer tuples. Every row of the first table is joined to every row of the second table. The result is tuples taken from both tables. [3] [9]
+
+The general syntax would be A ⟗ <join condition> B
+SQL translation example where attribute dob is Date of Birth and empno is Employee Number:
+
+SELECT A.dob, A.empno
+
+from employee
+
+JOIN B on B.empno=A.empno
+
+________________________________________________________________________________
+
+THETA JOIN Operator
+
+This operation results in all combinations of tuples from Relation A and Relation B satisfying a join requirement. The THETA JOIN is designated by:[3] The SQL implementation would be the same as for the JOIN example above.
+
+A ⟗ <join condition> B
+
+________________________________________________________________________________
+
+EQUIJOIN Operator
+
+The EQUIJOIN operation returns all combinations of tuples from Relation A and Relation B satisfying a join requirement with only equality comparisons. The EQUIJOIN operation is symbolized by : [3]
+
+A ⟗ <join condition> B, OR
+
+A ⟗ (<join attributes 1>),
+(<join attributes 2>) B
+
+SQL translation example where attribute dob is Date of Birth and empno is Employee Number:
+
+SELECT * from A
+
+INNER JOIN B
+
+on A.empno=B.empno
+
+________________________________________________________________________________
+
+NATURAL JOIN Operator
+
+The NATURAL JOIN operation returns results that does not include the JOIN attributes of the second Relation B. It is not required that attributes with the same name be mentioned. The NATURAL JOIN operator is symbolized by: [3] [10]
+
+A * ⟗ <join condition> B,
+OR A * ⟗ (<join attributes 1>),
+
+(<join attributes 2>) B
+
+OR A * B
+
+SQL translation example where attribute dob is Date of Birth and empno is Employee Number:
+
+SELECT A.dob, B.empno
+
+FROM A
+
+NATURAL JOIN B
+
+//where depno =5
+
+We can always use the ‘where’ clause to further restrict our output and stop a Cartesian product output.
+
+________________________________________________________________________________
+
+DIVISION Operator
+
+The DIVISION operation will return a Relation R(X) that includes all tuples t[X] in R(Z) that appear in R1 in combination with every tuple from R2(Y), where Z = X ∪ Y. The DIVISION operator is symbolized by: [3]
+
+R1(Z) ∻ R2(Y)
+The DIVISION operator is the most difficult to implement in SQL as no SQL command is given for DIVISION operation. The DIVISION operator would be seen as the opposite of the CARTERSIAN PRODUCT operator; just as in standard math, the relation between division and multiplication.[11] Therefore a series of current SQL commands have to be utilized in implementation of the DIVISION operator. An example of the SQL implementation of DIVISION operator: [12]
+
+SELECT surname, forenames
+
+FROM employee X
+
+WHERE NOT EXISTS
+
+(SELECT ‘X’
+
+FROM employee y
+
+WHERE NOT EXISTS
+
+(SELECT ‘X’
+
+FROM employee z
+
+WHERE x.empno = z.empno
+
+AND y.surname = z.surname))
+
+ORDER BY empno
+
+________________________________________________________________________________
+
+References
+
+[1] Clare Churcher, Beginning SQL Queries: From Novice to Professional, Apress Series, Books for Professionals by Professionals, Expert’s voice in databases, Edition illustrated, Apress, 2008, ISBN1590599438, 9781590599433, Page 12-13
+
+[2] Peter Z. Revesz, Introduction to constraint databases, Texts in computer science, Edition illustrated, Springer, 2002, ISBN 0387987290, 9780387987293, Page 26
+
+[3] Ramez Elmasri, Shamkant B. Navathe, Fundamentals of Database Systems, Edition 6, Addison Wesley Pub Co Inc, 2010, ISBN 0136086209, 9780136086208, Page 145 – 164
+
+[4] “Relational Algebra.” [Online]. Available: http://technet.microsoft.com/en-us/library/cc966426.aspx. [Accessed: 02-Oct-2010].
+
+[5] “Rename (relational algebra) – Wikipedia, the free encyclopedia.” [Online]. Available: http://en.wikipedia.org/wiki/Rename_(relational_algebra). [Accessed: 02-Oct-2010].
+
+[6] “Relational algebra – Wikipedia, the free encyclopedia.” [Online]. Available: http://en.wikipedia.org/wiki/Relational_algebra. [Accessed: 02-Oct-2010].
+
+[7] Rajesh Narang, Database Management Systems, PHI Learning Pvt. Ltd., 2006, ISBN 8120326458, 9788120326453, Page 223 – 239
+
+[8] P. S. Deshpande, Sql/Pl Sql For Oracle 9I (W/Cd), Dreamtech Press, 2003, ISBN 8177224719, 9788177224719, Page 45
+
+[9] Allen G. Taylor, SQL All-in-one Desk Reference for Dummies, For Dummies Computers Series, For Dummies, 2007, ISBN 0470119284, 9780470119280, Page 303 – 314
+
+[10] “Oracle simplifies SQL with ISO 99 Syntax.” [Online]. Available: http://www.dba-oracle.com/art_sql_iso_99.htm. [Accessed: 03-Oct-2010].
+
+[11] L. I. McCann and W. I. Kenosha, “On making relational division comprehensible,” in FRONTIERS IN EDUCATION CONFERENCE, vol. 2, pp. 2–6, 2003.
+
+[12] Sikha Bagui, Sikha Saha Bagui, Richard Earp, Essential SQL on SQL Server 2008, Edition revised, Jones & Bartlett Learning, 2009,ISBN 076378138X, 9780763781385, Page 314
