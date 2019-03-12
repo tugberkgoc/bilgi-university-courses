@@ -1,1 +1,5 @@
 .tmp.drivedownload/
+
+# DS Store
+.DS_Store
+/.DS_Store
