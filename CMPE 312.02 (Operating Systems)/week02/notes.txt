@@ -1,0 +1,8 @@
+Mega processor video:
+https://www.youtube.com/watch?v=lNa9bQRPMB8
+
+WilliamStallings_Chapter3: Interrupts
+The chapter is uploaded into "Course Basics"
+
+Homework (HW)
+Study Silberschatz ed. 7, chapter 1 (uploaded in "Course Basics")
