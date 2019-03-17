@@ -1,0 +1,19 @@
+1. MATH 233 midterm topics
+
+2. From the textbook (Lovasz and Vesztergombi):
+
+8.1 
+8.2
+8.3
+8.4 (page 62 is NOT included)
+8.5
+8.6 (pages 67, 68, .. 72 are NOT included)
+
+9.1
+9.2
+10 and 10.1
+
+15.1
+16 (until 16.1; 16.1 is NOT included)
+
+3. My notes about Ceasar’s cipher (shift cipher), Subsitution cipher and One-Time Pad. (I will upload these notes as soon as possible.)
