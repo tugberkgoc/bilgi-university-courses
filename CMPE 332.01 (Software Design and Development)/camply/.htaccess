@@ -1,0 +1,8 @@
+RewriteEngine On
+RewriteRule ^anasayfa/? index.php [NC,L]
+RewriteRule ^kayit/? kayit.php [NC,L]
+RewriteRule ^giris/? giris.php [NC,L]
+RewriteRule ^cikis/? cikis.php [NC,L]
+RewriteRule ^sil/? sil.php [NC,L]
+RewriteRule ^profil/? profil.php [NC,L]
+RewriteRule ^olustur/? olustur.php [NC,L]
